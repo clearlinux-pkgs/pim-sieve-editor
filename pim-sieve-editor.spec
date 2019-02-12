@@ -5,19 +5,19 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : pim-sieve-editor
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/pim-sieve-editor-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/pim-sieve-editor-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/pim-sieve-editor-18.08.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/pim-sieve-editor-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/pim-sieve-editor-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/pim-sieve-editor-18.12.2.tar.xz.sig
+Summary  : Mail sieve editor
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1
-Requires: pim-sieve-editor-bin
-Requires: pim-sieve-editor-lib
-Requires: pim-sieve-editor-data
-Requires: pim-sieve-editor-license
-Requires: pim-sieve-editor-locales
+Requires: pim-sieve-editor-bin = %{version}-%{release}
+Requires: pim-sieve-editor-data = %{version}-%{release}
+Requires: pim-sieve-editor-lib = %{version}-%{release}
+Requires: pim-sieve-editor-license = %{version}-%{release}
+Requires: pim-sieve-editor-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kimap-dev
@@ -26,7 +26,7 @@ BuildRequires : kmime-dev
 BuildRequires : kpimtextedit-dev
 BuildRequires : libksieve-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : syntax-highlighting-dev
 
 %description
@@ -35,8 +35,8 @@ No detailed description available
 %package bin
 Summary: bin components for the pim-sieve-editor package.
 Group: Binaries
-Requires: pim-sieve-editor-data
-Requires: pim-sieve-editor-license
+Requires: pim-sieve-editor-data = %{version}-%{release}
+Requires: pim-sieve-editor-license = %{version}-%{release}
 
 %description bin
 bin components for the pim-sieve-editor package.
@@ -61,8 +61,8 @@ doc components for the pim-sieve-editor package.
 %package lib
 Summary: lib components for the pim-sieve-editor package.
 Group: Libraries
-Requires: pim-sieve-editor-data
-Requires: pim-sieve-editor-license
+Requires: pim-sieve-editor-data = %{version}-%{release}
+Requires: pim-sieve-editor-license = %{version}-%{release}
 
 %description lib
 lib components for the pim-sieve-editor package.
@@ -85,27 +85,27 @@ locales components for the pim-sieve-editor package.
 
 
 %prep
-%setup -q -n pim-sieve-editor-18.08.0
+%setup -q -n pim-sieve-editor-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535436036
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549933619
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535436036
+export SOURCE_DATE_EPOCH=1549933619
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/pim-sieve-editor
-cp COPYING %{buildroot}/usr/share/doc/pim-sieve-editor/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/pim-sieve-editor/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/doc/pim-sieve-editor/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/pim-sieve-editor
+cp COPYING %{buildroot}/usr/share/package-licenses/pim-sieve-editor/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/pim-sieve-editor/COPYING.DOC
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/pim-sieve-editor/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -124,6 +124,7 @@ popd
 /usr/share/config.kcfg/sieveeditorglobalconfig.kcfg
 /usr/share/kconf_update/sieveeditor-15.08-kickoff.sh
 /usr/share/kconf_update/sieveeditor.upd
+/usr/share/metainfo/org.kde.sieveeditor.appdata.xml
 /usr/share/xdg/sieveeditor.categories
 /usr/share/xdg/sieveeditor.renamecategories
 
@@ -163,13 +164,13 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libsieveeditor.so.5
-/usr/lib64/libsieveeditor.so.5.9.0
+/usr/lib64/libsieveeditor.so.5.10.2
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/pim-sieve-editor/COPYING
-/usr/share/doc/pim-sieve-editor/COPYING.DOC
-/usr/share/doc/pim-sieve-editor/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pim-sieve-editor/COPYING
+/usr/share/package-licenses/pim-sieve-editor/COPYING.DOC
+/usr/share/package-licenses/pim-sieve-editor/COPYING.LIB
 
 %files locales -f sieveeditor.lang
 %defattr(-,root,root,-)
