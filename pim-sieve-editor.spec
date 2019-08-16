@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : pim-sieve-editor
-Version  : 19.04.3
-Release  : 9
-URL      : https://download.kde.org/stable/applications/19.04.3/src/pim-sieve-editor-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/pim-sieve-editor-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/pim-sieve-editor-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 10
+URL      : https://download.kde.org/stable/applications/19.08.0/src/pim-sieve-editor-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/pim-sieve-editor-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/pim-sieve-editor-19.08.0.tar.xz.sig
 Summary  : Mail sieve editor
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -85,16 +85,17 @@ locales components for the pim-sieve-editor package.
 
 
 %prep
-%setup -q -n pim-sieve-editor-19.04.3
+%setup -q -n pim-sieve-editor-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1563050081
+export SOURCE_DATE_EPOCH=1565935921
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -108,7 +109,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1563050081
+export SOURCE_DATE_EPOCH=1565935921
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pim-sieve-editor
 cp COPYING %{buildroot}/usr/share/package-licenses/pim-sieve-editor/COPYING
@@ -133,8 +134,8 @@ popd
 /usr/share/kconf_update/sieveeditor-15.08-kickoff.sh
 /usr/share/kconf_update/sieveeditor.upd
 /usr/share/metainfo/org.kde.sieveeditor.appdata.xml
-/usr/share/xdg/sieveeditor.categories
-/usr/share/xdg/sieveeditor.renamecategories
+/usr/share/qlogging-categories5/sieveeditor.categories
+/usr/share/qlogging-categories5/sieveeditor.renamecategories
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -172,7 +173,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libsieveeditor.so.5
-/usr/lib64/libsieveeditor.so.5.11.3
+/usr/lib64/libsieveeditor.so.5.12.0
 
 %files license
 %defattr(0644,root,root,0755)
