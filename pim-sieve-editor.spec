@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : pim-sieve-editor
-Version  : 19.08.2
-Release  : 12
-URL      : https://download.kde.org/stable/applications/19.08.2/src/pim-sieve-editor-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/pim-sieve-editor-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/pim-sieve-editor-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 13
+URL      : https://download.kde.org/stable/applications/19.08.3/src/pim-sieve-editor-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/pim-sieve-editor-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/pim-sieve-editor-19.08.3.tar.xz.sig
 Summary  : Mail sieve editor
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -20,6 +20,7 @@ Requires: pim-sieve-editor-license = %{version}-%{release}
 Requires: pim-sieve-editor-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : kimap-dev
 BuildRequires : kmailtransport-dev
 BuildRequires : kmime-dev
 BuildRequires : kpimtextedit-dev
@@ -84,14 +85,14 @@ locales components for the pim-sieve-editor package.
 
 
 %prep
-%setup -q -n pim-sieve-editor-19.08.2
+%setup -q -n pim-sieve-editor-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570783080
+export SOURCE_DATE_EPOCH=1573535501
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -108,12 +109,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570783080
+export SOURCE_DATE_EPOCH=1573535501
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pim-sieve-editor
-cp COPYING %{buildroot}/usr/share/package-licenses/pim-sieve-editor/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/package-licenses/pim-sieve-editor/COPYING.DOC
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/pim-sieve-editor/COPYING.LIB
+cp %{_builddir}/pim-sieve-editor-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/pim-sieve-editor/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/pim-sieve-editor-19.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/pim-sieve-editor/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/pim-sieve-editor-19.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/pim-sieve-editor/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -172,13 +173,13 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libsieveeditor.so.5
-/usr/lib64/libsieveeditor.so.5.12.2
+/usr/lib64/libsieveeditor.so.5.12.3
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/pim-sieve-editor/COPYING
-/usr/share/package-licenses/pim-sieve-editor/COPYING.DOC
-/usr/share/package-licenses/pim-sieve-editor/COPYING.LIB
+/usr/share/package-licenses/pim-sieve-editor/1bd373e4851a93027ba70064bd7dbdc6827147e1
+/usr/share/package-licenses/pim-sieve-editor/7c203dee3a03037da436df03c4b25b659c073976
+/usr/share/package-licenses/pim-sieve-editor/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 
 %files locales -f sieveeditor.lang
 %defattr(-,root,root,-)
