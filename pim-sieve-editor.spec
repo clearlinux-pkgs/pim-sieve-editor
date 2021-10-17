@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : pim-sieve-editor
-Version  : 21.08.1
-Release  : 29
-URL      : https://download.kde.org/stable/release-service/21.08.1/src/pim-sieve-editor-21.08.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.08.1/src/pim-sieve-editor-21.08.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.08.1/src/pim-sieve-editor-21.08.1.tar.xz.sig
+Version  : 21.08.2
+Release  : 30
+URL      : https://download.kde.org/stable/release-service/21.08.2/src/pim-sieve-editor-21.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.2/src/pim-sieve-editor-21.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.2/src/pim-sieve-editor-21.08.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-2.0 LGPL-2.0
@@ -94,15 +94,15 @@ locales components for the pim-sieve-editor package.
 
 
 %prep
-%setup -q -n pim-sieve-editor-21.08.1
-cd %{_builddir}/pim-sieve-editor-21.08.1
+%setup -q -n pim-sieve-editor-21.08.2
+cd %{_builddir}/pim-sieve-editor-21.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630969594
+export SOURCE_DATE_EPOCH=1634444448
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -118,15 +118,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1630969594
+export SOURCE_DATE_EPOCH=1634444448
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pim-sieve-editor
-cp %{_builddir}/pim-sieve-editor-21.08.1/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/pim-sieve-editor-21.08.1/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/pim-sieve-editor-21.08.1/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/pim-sieve-editor-21.08.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/pim-sieve-editor-21.08.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/pim-sieve-editor-21.08.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/pim-sieve-editor-21.08.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/pim-sieve-editor-21.08.2/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/pim-sieve-editor-21.08.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/pim-sieve-editor-21.08.2/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/pim-sieve-editor-21.08.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/pim-sieve-editor-21.08.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/a4c60b3fefda228cd7439d3565df043192fef137
 pushd clr-build
 %make_install
 popd
@@ -174,6 +174,8 @@ popd
 /usr/share/doc/HTML/pt/sieveeditor/index.docbook
 /usr/share/doc/HTML/pt_BR/sieveeditor/index.cache.bz2
 /usr/share/doc/HTML/pt_BR/sieveeditor/index.docbook
+/usr/share/doc/HTML/ru/sieveeditor/index.cache.bz2
+/usr/share/doc/HTML/ru/sieveeditor/index.docbook
 /usr/share/doc/HTML/sv/sieveeditor/index.cache.bz2
 /usr/share/doc/HTML/sv/sieveeditor/index.docbook
 /usr/share/doc/HTML/uk/sieveeditor/index.cache.bz2
@@ -182,7 +184,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libsieveeditor.so.5
-/usr/lib64/libsieveeditor.so.5.18.1
+/usr/lib64/libsieveeditor.so.5.18.2
 
 %files license
 %defattr(0644,root,root,0755)
