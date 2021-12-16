@@ -6,7 +6,6 @@ libKF5CoreAddons.so.5
 libKF5Crash.so.5
 libKF5DBusAddons.so.5
 libKF5I18n.so.5
-libKF5IconThemes.so.5
 libKF5KManageSieve.so.5
 libKF5KSieveUi.so.5
 libKF5MailTransport.so.5
