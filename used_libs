@@ -14,7 +14,6 @@ libKF5WidgetsAddons.so.5
 libKF5XmlGui.so.5
 libQt5Core.so.5
 libQt5Gui.so.5
-libQt5Network.so.5
 libQt5Widgets.so.5
 libc.so.6
 libqt5keychain.so.1

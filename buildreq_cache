@@ -1,4 +1,4 @@
-21.12.3
+22.04.0
 kmime-dev
-libsecret-dev
+pkgconfig(libsecret-1)
 syntax-highlighting-dev
