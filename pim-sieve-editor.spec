@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : pim-sieve-editor
-Version  : 22.08.3
-Release  : 44
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/pim-sieve-editor-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/pim-sieve-editor-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/pim-sieve-editor-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 45
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/pim-sieve-editor-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/pim-sieve-editor-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/pim-sieve-editor-22.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
@@ -31,6 +31,7 @@ BuildRequires : kio-dev
 BuildRequires : kmailtransport-dev
 BuildRequires : kmime-dev
 BuildRequires : kpimtextedit-dev
+BuildRequires : kuserfeedback-dev
 BuildRequires : libksieve-dev
 BuildRequires : pimcommon-dev
 BuildRequires : syntax-highlighting-dev
@@ -91,15 +92,15 @@ locales components for the pim-sieve-editor package.
 
 
 %prep
-%setup -q -n pim-sieve-editor-22.08.3
-cd %{_builddir}/pim-sieve-editor-22.08.3
+%setup -q -n pim-sieve-editor-22.12.0
+cd %{_builddir}/pim-sieve-editor-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667929858
+export SOURCE_DATE_EPOCH=1670788075
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -115,16 +116,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667929858
+export SOURCE_DATE_EPOCH=1670788075
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pim-sieve-editor
-cp %{_builddir}/pim-sieve-editor-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/c011fda7746c087a127999da1c4044854ee42238 || :
-cp %{_builddir}/pim-sieve-editor-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9 || :
-cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
-cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/8287b608d3fa40ef401339fd907ca1260c964123 || :
-cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
-cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/a4c60b3fefda228cd7439d3565df043192fef137 || :
-cp %{_builddir}/pim-sieve-editor-%{version}/src/org.kde.sieveeditor.desktop.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/864bc0eb28c73bd997ac19ff91935ab771846615 || :
+cp %{_builddir}/pim-sieve-editor-%{version}/.codespellrc.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/c011fda7746c087a127999da1c4044854ee42238
+cp %{_builddir}/pim-sieve-editor-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9
+cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/pim-sieve-editor-%{version}/src/org.kde.sieveeditor.desktop.license %{buildroot}/usr/share/package-licenses/pim-sieve-editor/864bc0eb28c73bd997ac19ff91935ab771846615
 pushd clr-build
 %make_install
 popd
@@ -180,7 +181,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libsieveeditor.so.5
-/usr/lib64/libsieveeditor.so.5.21.3
+/usr/lib64/libsieveeditor.so.5.22.0
 
 %files license
 %defattr(0644,root,root,0755)
