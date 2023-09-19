@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : pim-sieve-editor
-Version  : 23.08.0
-Release  : 55
-URL      : https://download.kde.org/stable/release-service/23.08.0/src/pim-sieve-editor-23.08.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.0/src/pim-sieve-editor-23.08.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.0/src/pim-sieve-editor-23.08.0.tar.xz.sig
+Version  : 23.08.1
+Release  : 56
+URL      : https://download.kde.org/stable/release-service/23.08.1/src/pim-sieve-editor-23.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.1/src/pim-sieve-editor-23.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.1/src/pim-sieve-editor-23.08.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
@@ -90,15 +90,15 @@ locales components for the pim-sieve-editor package.
 
 
 %prep
-%setup -q -n pim-sieve-editor-23.08.0
-cd %{_builddir}/pim-sieve-editor-23.08.0
+%setup -q -n pim-sieve-editor-23.08.1
+cd %{_builddir}/pim-sieve-editor-23.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693239481
+export SOURCE_DATE_EPOCH=1695098768
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -131,7 +131,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1693239481
+export SOURCE_DATE_EPOCH=1695098768
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pim-sieve-editor
 cp %{_builddir}/pim-sieve-editor-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/pim-sieve-editor/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -198,9 +198,9 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libsieveeditor.so.5.24.0
+/V3/usr/lib64/libsieveeditor.so.5.24.1
 /usr/lib64/libsieveeditor.so.5
-/usr/lib64/libsieveeditor.so.5.24.0
+/usr/lib64/libsieveeditor.so.5.24.1
 
 %files license
 %defattr(0644,root,root,0755)
