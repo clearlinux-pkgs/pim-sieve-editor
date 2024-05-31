@@ -9,7 +9,7 @@
 #
 Name     : pim-sieve-editor
 Version  : 24.05.0
-Release  : 65
+Release  : 66
 URL      : https://download.kde.org/stable/release-service/24.05.0/src/pim-sieve-editor-24.05.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.05.0/src/pim-sieve-editor-24.05.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.05.0/src/pim-sieve-editor-24.05.0.tar.xz.sig
